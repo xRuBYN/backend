@@ -2,16 +2,14 @@ package rub.demo.backend.domain.model;
 
 
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.context.annotation.Role;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -43,6 +41,6 @@ public class User {
 
     private String role;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
     Bin bin;
 }

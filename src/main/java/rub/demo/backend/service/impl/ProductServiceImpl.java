@@ -56,22 +56,6 @@ public class ProductServiceImpl implements ProductService {
                 .price(productProjection.getPrice()).build();
     }
 
-    @Override
-    public void edit(Long id,ProductRequest productRequest) {
-        Product product = repository.findAllById(id);
-        if(product != null) {
-            if(!productRequest.getName().isEmpty()) {
-                product.setName(productRequest.getName());
-            }
-            if(!productRequest.getPrice().isEmpty()) {
-                product.setPrice(productRequest.getPrice());
-            }
-            if(!productRequest.getWeight().isEmpty()) {
-                product.setWeight(productRequest.getWeight());
-            }
-            repository.save(product);
-         }
-    }
 
     @Override
     public List<ProductFromUser> getProductFromUser(Long id) {

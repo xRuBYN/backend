@@ -1,9 +1,6 @@
 package rub.demo.backend.domain.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,6 +11,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 @Builder
+@ToString
 public class Bin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -20,23 +20,23 @@ public class UserController {
         this.productService = productService;
     }
 
-    @PostMapping("register")
+    @PostMapping("/register")
     public void register(@RequestBody RegisterRequest registerRequest) {
         userService.register(registerRequest);
     }
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest authRequest) {
         return ResponseEntity.ok(userService.login(authRequest));
     }
 
 
-    @PutMapping("edit/{email}")
+    @PutMapping("/edit/{email}")
     public void edit(@RequestBody UserRequest userRequest, @PathVariable(name = "email") String email) {
         userService.edit(userRequest,email);
     }
 
-    @GetMapping("bin/{id}")
+    @GetMapping("/bin/{id}")
     public ResponseEntity<List<ProductFromUser>> viewProduct(@PathVariable(name = "id") Long id) {
         List<ProductFromUser> list = productService.getProductFromUser(id);
         return ResponseEntity.ok(list);
